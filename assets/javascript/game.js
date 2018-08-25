@@ -8,7 +8,7 @@ var guessesLeft = 9;
 var underScores = [];
 var userGuesses = [];
 // Answer variable
-var randomWord = [];
+var randomWord;
 
 //Choose a random word from array
 function startGame() {
