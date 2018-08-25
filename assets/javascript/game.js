@@ -13,7 +13,7 @@ var randomWord;
 //Choose a random word from array
 function startGame() {
     randomWord = wordBank[Math.floor(Math.random() * wordBank.length)];
-    console.log(randomWord);
+    console.log("random Word = " + randomWord);
 
     for(var i = 0; i < randomWord.length; i++)
     { 
@@ -24,11 +24,11 @@ function startGame() {
 
     // Reset
     wrongLetter = [];
-    guessesLeft = 9;
+    guessesLeft = 10;
 
     // HTML
     document.getElementById("guesses-left").textContent = guessesLeft;
-    document.getElementById("wrong-letter").textContent = wrongLetter;
+    
     document.getElementById("wins").textContent = wins;
     document.getElementById("losses").textContent = losses;
     }
@@ -62,4 +62,4 @@ function startGame() {
         }
     }
     //Main
-    startGame();
+    
