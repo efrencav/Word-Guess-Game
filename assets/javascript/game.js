@@ -32,9 +32,8 @@ function startGame() {
     console.log("random Word = " + randomWord);
 
     for (var i = 0; i < randomWord.length; i++) {
-        underScores.push('_');
+        underScores.push("_");
     }
-    
     updateRandomWords();
 }
 
@@ -50,7 +49,6 @@ document.onkeyup = function (event) {
         for (var i = 0; i < randomWord.length; i++) {
             if (randomWord[i] === userGuesses) {
                 underScores.splice(i, 1, userGuesses);
-                
             }
         }
         updateRandomWords();
@@ -60,10 +58,9 @@ document.onkeyup = function (event) {
         guessesLeft--;
         console.log(wrongLetter);
     }
+
     if (underScores.join("") === randomWord) {
         reset();
-    
-
     }
 
     if (guessesLeft === 0) {
