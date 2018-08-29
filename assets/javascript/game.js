@@ -44,7 +44,7 @@ function winlose() {
 }
 
 function youLost() {
-    alert('You Lose');
+    alert('You Lose, try again.');
     startGame();
 }
 // Users guesses
