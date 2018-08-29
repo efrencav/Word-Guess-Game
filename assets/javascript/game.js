@@ -12,8 +12,9 @@ var randomWord = [];
 
 // Reset
 function reset() {
-    guessesRemaining = 10;
+    guessesleft = 9;
     guessedLetters = [];
+    underScores = [];
     startGame();
 }
 
@@ -41,6 +42,11 @@ function winlose() {
     alert("Winner");
     startGame();
 }
+
+function youLost() {
+    alert('You Lose');
+    startGame();
+}
 // Users guesses
 document.onkeyup = function (event) {
     userGuesses = event.key;
@@ -49,6 +55,7 @@ document.onkeyup = function (event) {
         for (var i = 0; i < randomWord.length; i++) {
             if (randomWord[i] === userGuesses) {
                 underScores.splice(i, 1, userGuesses);
+                guessesLeft--;
             }
         }
         updateRandomWords();
@@ -56,19 +63,37 @@ document.onkeyup = function (event) {
     else {
         wrongLetter.push(userGuesses);
         guessesLeft--;
-        console.log(wrongLetter);
+        console.log("Wrong letter typed: " + wrongLetter);
+    }
+
+    if (wrongLetter.indexOf(userGuesses) >= 9) {
+        youLost();
+        losses++;
+        guessesLeft = 9;
+        wrongLetter = [];
+        reset();
     }
 
     if (underScores.join("") === randomWord) {
+        winlose();
+        guessesLeft = 9;
+        wins++;
+        wrongLetter = [];
         reset();
     }
 
     if (guessesLeft === 0) {
+        reset();
         losses++;
         guessesLeft = 9;
-        reset();
+        
     }
     
 };
 
 
+// else {
+//     wrongLetter.push(userGuesses);
+//     guessesLeft--;
+//     console.log("Wrong letter typed: " + wrongLetter);
+// }
